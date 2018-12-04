@@ -1,0 +1,134 @@
+[
+    {
+        "id": 1,
+        "name": "图书、音像、电子书刊",
+        "parentId": 0,
+        "typeId": 35
+    },
+    {
+        "id": 74,
+        "name": "家用电器",
+        "parentId": 0,
+        "typeId": 35
+    },
+    {
+        "id": 161,
+        "name": "电脑、办公",
+        "parentId": 0,
+        "typeId": 35
+    },
+    {
+        "id": 249,
+        "name": "个护化妆",
+        "parentId": 0,
+        "typeId": 35
+    },
+    {
+        "id": 290,
+        "name": "钟表",
+        "parentId": 0,
+        "typeId": 35
+    },
+    {
+        "id": 296,
+        "name": "母婴",
+        "parentId": 0,
+        "typeId": 35
+    },
+    {
+        "id": 378,
+        "name": "食品饮料、保健食品",
+        "parentId": 0,
+        "typeId": 35
+    },
+    {
+        "id": 438,
+        "name": "汽车用品",
+        "parentId": 0,
+        "typeId": 35
+    },
+    {
+        "id": 495,
+        "name": "玩具乐器",
+        "parentId": 0,
+        "typeId": 35
+    },
+    {
+        "id": 558,
+        "name": "手机",
+        "parentId": 0,
+        "typeId": 35
+    },
+    {
+        "id": 580,
+        "name": "数码",
+        "parentId": 0,
+        "typeId": 35
+    },
+    {
+        "id": 633,
+        "name": "家居家装",
+        "parentId": 0,
+        "typeId": 35
+    },
+    {
+        "id": 699,
+        "name": "厨具",
+        "parentId": 0,
+        "typeId": 35
+    },
+    {
+        "id": 749,
+        "name": "服饰内衣",
+        "parentId": 0,
+        "typeId": 35
+    },
+    {
+        "id": 865,
+        "name": "鞋靴",
+        "parentId": 0,
+        "typeId": 35
+    },
+    {
+        "id": 903,
+        "name": "礼品箱包",
+        "parentId": 0,
+        "typeId": 35
+    },
+    {
+        "id": 963,
+        "name": "珠宝",
+        "parentId": 0,
+        "typeId": 35
+    },
+    {
+        "id": 1031,
+        "name": "运动健康",
+        "parentId": 0,
+        "typeId": 35
+    },
+    {
+        "id": 1147,
+        "name": "彩票、旅行、充值、票务",
+        "parentId": 0,
+        "typeId": 35
+    },
+    {
+        "id": 1186,
+        "name": "小白大数据",
+        "parentId": 0,
+        "typeId": 35
+    },
+    {
+        "id": 1205,
+        "name": "个人用品",
+        "parentId": 0,
+        "typeId": 38
+    },
+    {
+        "id": 1227,
+        "name": "成人用品",
+        "parentId": 0,
+        "typeId": 45
+    }
+]

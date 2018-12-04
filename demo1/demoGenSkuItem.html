@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+		<script>
+			
+			var app = angular.module('app',[]);
+			app.controller('ctr', function($scope,$http){
+				
+				$scope.entity={goods:{}, goodsDesc:{itemImages:[],specificationItems:[]},itemList:[]};
+				
+			    $http.get('specIds.json').success(function(res){
+			    	$scope.specIds=res;
+			    	console.log(res);
+			    });
+			    
+			    
+				
+				
+			});
+			
+			
+			
+		</script>
+		
+		
+	</head>
+	<body ng-app="app" ng-controller="ctr">
+		
+		规格选项
+		  {{entity.goodsDesc.specificationItems}}
+		<hr>
+		sku集合
+		{{entity.itemList}}
+		
+		
+		
+		<div ng-repeat="spec in specIds">
+			<div>
+				{{spec.text}}
+			</div>
+			<span ng-repeat="option in spec.options">
+				<input type="checkbox">{{option.optionName}}</input>
+			</span>
+		</div>
+		
+		
+		//遍历sku集合
+		<div ng-repeat="sku in entity.skuList">
+			<div>{{sku}}</div>
+		</div>
+		
+		
+		
+		
+	</body>
+</html>

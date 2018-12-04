@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+		<script>
+		   var app = angular.module('app',[]);
+		   app.controller('ctr', function($scope,$http){
+					
+				$http.get('category.json').success(function(res){
+					
+					$scope.list=res;
+				});
+				
+				$scope.$watch('category', function(n,o){
+					
+					//alert('category改变了');
+					console.log('------------');
+					console.log('old--->'+o);
+					console.log('new--->'+n);
+				});
+				
+		   });
+			
+		</script>
+	</head>
+	<body ng-app="app" ng-controller="ctr">
+		
+		<div>
+			<select ng-model="category" 
+				ng-options="item.id as item.name for item in list"></select>
+		</div>
+		
+		{{category}}
+		
+		
+	</body>
+</html>

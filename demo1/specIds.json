@@ -1,0 +1,98 @@
+[
+    {
+        "id": 27,
+        "text": "网络",
+        "options": [
+            {
+                "id": 98,
+                "optionName": "移动3G",
+                "orders": 1,
+                "specId": 27
+            },
+            {
+                "id": 99,
+                "optionName": "移动4G",
+                "orders": 2,
+                "specId": 27
+            },
+            {
+                "id": 100,
+                "optionName": "联通3G",
+                "orders": 3,
+                "specId": 27
+            },
+            {
+                "id": 101,
+                "optionName": "联通4G",
+                "orders": 4,
+                "specId": 27
+            },
+            {
+                "id": 112,
+                "optionName": "电信3G",
+                "orders": 5,
+                "specId": 27
+            },
+            {
+                "id": 113,
+                "optionName": "电信4G",
+                "orders": 6,
+                "specId": 27
+            },
+            {
+                "id": 114,
+                "optionName": "移动2G",
+                "orders": 7,
+                "specId": 27
+            },
+            {
+                "id": 115,
+                "optionName": "联通2G",
+                "orders": 8,
+                "specId": 27
+            },
+            {
+                "id": 116,
+                "optionName": "电信2G",
+                "orders": 9,
+                "specId": 27
+            },
+            {
+                "id": 117,
+                "optionName": "双卡",
+                "orders": 10,
+                "specId": 27
+            }
+        ]
+    },
+    {
+        "id": 32,
+        "text": "机身内存",
+        "options": [
+            {
+                "id": 118,
+                "optionName": "16G",
+                "orders": 1,
+                "specId": 32
+            },
+            {
+                "id": 119,
+                "optionName": "32G",
+                "orders": 2,
+                "specId": 32
+            },
+            {
+                "id": 120,
+                "optionName": "64G",
+                "orders": 3,
+                "specId": 32
+            },
+            {
+                "id": 121,
+                "optionName": "128G",
+                "orders": 4,
+                "specId": 32
+            }
+        ]
+    }
+]

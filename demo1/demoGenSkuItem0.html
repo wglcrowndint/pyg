@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+		<script>
+			
+			var app = angular.module('app',[]);
+			app.controller('ctr', function($scope){
+				
+			    $scope.specIds=[{"options":[{"id":98,"optionName":"移动3G","orders":1,"specId":27},{"id":99,"optionName":"移动4G","orders":2,"specId":27},{"id":100,"optionName":"联通3G","orders":3,"specId":27},{"id":101,"optionName":"联通4G","orders":4,"specId":27},{"id":112,"optionName":"电信3G","orders":5,"specId":27},{"id":113,"optionName":"电信4G","orders":6,"specId":27},{"id":114,"optionName":"移动2G","orders":7,"specId":27},{"id":115,"optionName":"联通2G","orders":8,"specId":27},{"id":116,"optionName":"电信2G","orders":9,"specId":27},{"id":117,"optionName":"双卡","orders":10,"specId":27}],"id":27,"text":"网络"},{"options":[{"id":118,"optionName":"16G","orders":1,"specId":32},{"id":119,"optionName":"32G","orders":2,"specId":32},{"id":120,"optionName":"64G","orders":3,"specId":32},{"id":121,"optionName":"128G","orders":4,"specId":32}],"id":32,"text":"机身内存"}];
+				
+				$scope.entity={goods:{}, goodsDesc:{itemImages:[],specificationItems:[]},itemList:[]};
+				
+				//生成规格选项
+				$scope.createSpecItems=function($event,text,option){
+					
+					var checkedSpecItem = findCheckedSpecItemByText(text);
+					if(checkedSpecItem==null) {
+						$scope.entity.goodsDesc.specificationItems.push({attributeName:text,attributeValue:[option]});
+					}else {
+						if($event.target.checked) {
+							checkedSpecItem.attributeValue.push(option);
+						}else {
+							var indexOfOption = checkedSpecItem.attributeValue.indexOf(option);
+							checkedSpecItem.attributeValue.splice(indexOfOption, 1);
+							if(checkedSpecItem.attributeValue.length==0) {
+								var indexOfSpecItem = $scope.entity.goodsDesc.specificationItems.indexOf(checkedSpecItem);
+								$scope.entity.goodsDesc.specificationItems.splice(indexOfSpecItem, 1);
+							}
+						}
+					}
+					
+					//调用createSkuList生成skuList
+					$scope.createSkuList();
+					
+				}
+				
+				findCheckedSpecItemByText=function(text){
+					var specificationItems = $scope.entity.goodsDesc.specificationItems;
+					for(var i=0;i<specificationItems.length;i++) {
+						var specItem = specificationItems[i];
+						if(specItem.attributeName==text) {
+							return specItem;
+						}
+					}
+					return null;
+				}
+				
+				//生成sku列表
+				$scope.createSkuList=function(){
+					$scope.entity.itemList=[{spec:{},num:99999,price:99999,status:0,isDefault:1}];
+					//遍历specificationItems，给每一层集合添加attributName属性
+					//向下添加attributeName属性
+					var specificationItems = $scope.entity.goodsDesc.specificationItems;
+					for(var i=0;i<specificationItems.length;i++) {
+						//新的sku对象集合
+						var newSkuList=[];
+						
+						var specItem = specificationItems[i];
+						//取出attributeName属性、sttributeValue属性
+						var attributeName = specItem.attributeName;
+						var sttributeValue = specItem.attributeValue;
+						//遍历树的每一层的每一个节点，给每一个节点添加attributeName属性
+						for(var j=0;j<$scope.entity.itemList.length;j++) {
+							var oldSkuItem = $scope.entity.itemList[j];
+							//遍历sttributeValue集合，克隆新的对象添加属性
+							for(var k=0;k<sttributeValue.length;k++) {
+								var attrValue = sttributeValue[k];
+								var newSkuItem = JSON.parse(JSON.stringify(oldSkuItem));
+								newSkuItem.spec[attributeName]=attrValue;
+								newSkuList.push(newSkuItem);
+							}
+						}
+						
+						//$scope.skuList赋值
+						$scope.entity.itemList=newSkuList;
+						delete newSkuList;
+					}
+					
+				}
+				
+				
+				
+				
+			});
+			
+			
+			
+		</script>
+		
+		
+	</head>
+	<body ng-app="app" ng-controller="ctr">
+		
+		规格选项
+		  {{entity.goodsDesc.specificationItems}}
+		<hr>
+		sku集合
+		{{entity.itemList}}
+		
+		
+		
+		<div ng-repeat="spec in specIds">
+			<div>
+				{{spec.text}}
+			</div>
+			<span ng-repeat="option in spec.options">
+				<input type="checkbox" ng-click="createSpecItems($event,spec.text,option.optionName)">{{option.optionName}}</input>
+			</span>
+		</div>
+		
+		
+		//遍历sku集合
+		<div ng-repeat="sku in entity.itemList">
+			<div>{{sku}}</div>
+		</div>
+		
+		
+		
+		
+	</body>
+</html>
